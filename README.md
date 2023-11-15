@@ -9,6 +9,7 @@ npm run dev
 
 npm installs:
 - npm install
+- npm install react-router-dom localforage match-sorter sort-by
 - npm install @mui/material @emotion/react @emotion/styled
 - npm install ag-grid-community ag-grid-react
 <!-- - npm install gh-pages --save-dev -->
