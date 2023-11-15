@@ -1,8 +1,16 @@
-# React + Vite
+# Personal Trainer user interface
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A solo project for Haaga-Helia University of Applied Sciences front end course.
 
-Currently, two official plugins are available:
+This is a react front end user interface for separate (not maintainted by me) REST API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+NPM needed for running the project:
+npm run dev
+
+npm installs:
+- npm install
+- npm install @mui/material @emotion/react @emotion/styled
+- npm install ag-grid-community ag-grid-react
+<!-- - npm install gh-pages --save-dev -->
+
+Aleksi Hyppönen 2023
