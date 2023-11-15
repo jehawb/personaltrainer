@@ -6,15 +6,15 @@ import { useEffect, useState } from "react";
 export default function Trainings() {
 
     // States
-    
+
     const [trainings, setTrainings] = useState([]);
 
     // Ag-Grid columns
 
-    const columns = [
-        {field: "activity"},
-        {field: "date"},    // TODO: Converting date to something more legible one could use cellrendered and function for parsing
-        {field: "duration"},
+    const columnDefs = [
+        { field: "activity", sortable: true, filter: true, floatingFilter: true },
+        { field: "date", sortable: true, filter: true, floatingFilter: true },    // TODO: Converting date to something more legible one could use cellrendered and function for parsing
+        { field: "duration", sortable: true, filter: true, floatingFilter: true },
     ]
 
     // REST API functions
@@ -25,12 +25,12 @@ export default function Trainings() {
 
     const getTrainings = () => {
         fetch(REST_URL)
-        .then(response => response.json())
-        .then(responseData => {
-            console.log("responseData:" + responseData.content);
-            setTrainings(responseData.content);
-        })
-        .catch(error => console.error(error));
+            .then(response => response.json())
+            .then(responseData => {
+                console.log("responseData:" + responseData.content);
+                setTrainings(responseData.content);
+            })
+            .catch(error => console.error(error));
     }
 
     // Functions
@@ -42,10 +42,10 @@ export default function Trainings() {
         <>
             <h1>&#128170; Train, train, train! &#128642;</h1>
 
-            <div className="ag-theme-material" style={{ height: '700px', width: '100%', padding: '0%', margin: 'auto'}} >
+            <div className="ag-theme-material" style={{ height: '700px', width: '100%', padding: '0%', margin: 'auto' }} >
                 <AgGridReact
                     rowData={trainings}
-                    columnDefs={columns}
+                    columnDefs={columnDefs}
                     pagination={true}
                     paginationPageSize={10}
                 />

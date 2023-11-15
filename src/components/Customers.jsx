@@ -11,13 +11,13 @@ export default function Customers() {
 
     // Ag-Grid columns
 
-    const columns = [
-        { field: "firstname" },
-        { field: "lastname" },
-        { field: "streetaddress" },
-        { field: "postcode" },
-        { field: "city" },
-        { field: "email" },   // I sure hope this application is just for personal trainer's use
+    const columnDefs = [
+        { field: "firstname", sortable: true, filter: true, floatingFilter: true },
+        { field: "lastname", sortable: true, filter: true, floatingFilter: true },
+        { field: "streetaddress", sortable: true, filter: true, floatingFilter: true },
+        { field: "postcode", sortable: true, filter: true, floatingFilter: true },
+        { field: "city", sortable: true, filter: true, floatingFilter: true },
+        { field: "email", sortable: true, filter: true, floatingFilter: true },   // I sure hope this application is just for personal trainer's use
         { field: "phone" },
     ]
 
@@ -49,7 +49,7 @@ export default function Customers() {
             <div className="ag-theme-material" style={{ height: '700px', width: '100%', padding: '0%', margin: 'auto' }} >
                 <AgGridReact
                     rowData={customers}
-                    columnDefs={columns}
+                    columnDefs={columnDefs}
                     pagination={true}
                     paginationPageSize={10}
                 />
