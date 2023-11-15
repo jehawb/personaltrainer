@@ -9,7 +9,7 @@ export default function App() {
         <div className="App">
             <nav>
                 <Link to={"/"}>Home</Link>
-                <Link to={"/training"}>Training</Link>
+                <Link to={"/trainings"}>Trainings</Link>
                 <Link to={"/customers"}>Customers</Link>
             </nav>
             <Outlet />

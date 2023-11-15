@@ -4,7 +4,7 @@ import App from './App.jsx'
 import { createBrowserRouter } from 'react-router-dom'
 import Error from './components/Error.jsx';
 import Home from './components/Home.jsx';
-import Training from './components/Training.jsx';
+import Trainings from './components/Trainings.jsx';
 import { RouterProvider } from 'react-router';
 import Customers from './components/Customers.jsx';
 // import './index.css'
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
                 index: true
             },
             {
-                path: "training",
-                element: <Training />,
+                path: "trainings",
+                element: <Trainings />,
             },
             {
                 path: "customers",
