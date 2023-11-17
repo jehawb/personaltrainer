@@ -11,10 +11,16 @@ export default function Trainings() {
 
     // Ag-Grid columns
 
+    const columnProperties = {
+        sortable: true, 
+        filter: true, 
+        floatingFilter: true
+    }
+
     const columnDefs = [
-        { headerName: "Activity", field: "activity", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Date", field: "date", sortable: true, filter: true, floatingFilter: true },    // TODO: Converting date to something more legible one could use cellrendered and function for parsing
-        { headerName: "Duration", field: "duration", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Activity", field: "activity", ...columnProperties },
+        { headerName: "Date", field: "date", ...columnProperties },    // TODO: Converting date to something more legible one could use cellrendered and function for parsing
+        { headerName: "Duration", field: "duration", ...columnProperties },
     ]
 
     // REST API functions

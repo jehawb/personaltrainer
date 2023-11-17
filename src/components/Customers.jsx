@@ -11,13 +11,19 @@ export default function Customers() {
 
     // Ag-Grid columns
 
+    const columnProperties = {
+        sortable: true, 
+        filter: true, 
+        floatingFilter: true
+    }
+
     const columnDefs = [
-        { headerName: "First Name", field: "firstname", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Last Name", field: "lastname", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Address", field: "streetaddress", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Postcode", field: "postcode", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "City", field: "city", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "e-mail", field: "email", sortable: true, filter: true, floatingFilter: true },   // I sure hope this application is not for public use
+        { headerName: "First Name", field: "firstname", ...columnProperties },
+        { headerName: "Last Name", field: "lastname", ...columnProperties },
+        { headerName: "Address", field: "streetaddress", ...columnProperties },
+        { headerName: "Postcode", field: "postcode", ...columnProperties },
+        { headerName: "City", field: "city", ...columnProperties },
+        { headerName: "e-mail", field: "email", ...columnProperties },   // I sure hope this application is not for public use
         { headerName: "Phone number", field: "phone" },
     ]
 
