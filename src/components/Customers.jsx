@@ -12,13 +12,13 @@ export default function Customers() {
     // Ag-Grid columns
 
     const columnDefs = [
-        { field: "firstname", sortable: true, filter: true, floatingFilter: true },
-        { field: "lastname", sortable: true, filter: true, floatingFilter: true },
-        { field: "streetaddress", sortable: true, filter: true, floatingFilter: true },
-        { field: "postcode", sortable: true, filter: true, floatingFilter: true },
-        { field: "city", sortable: true, filter: true, floatingFilter: true },
-        { field: "email", sortable: true, filter: true, floatingFilter: true },   // I sure hope this application is just for personal trainer's use
-        { field: "phone" },
+        { headerName: "First Name", field: "firstname", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Last Name", field: "lastname", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Address", field: "streetaddress", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Postcode", field: "postcode", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "City", field: "city", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "e-mail", field: "email", sortable: true, filter: true, floatingFilter: true },   // I sure hope this application is not for public use
+        { headerName: "Phone number", field: "phone" },
     ]
 
     // REST API functions

@@ -12,9 +12,9 @@ export default function Trainings() {
     // Ag-Grid columns
 
     const columnDefs = [
-        { field: "activity", sortable: true, filter: true, floatingFilter: true },
-        { field: "date", sortable: true, filter: true, floatingFilter: true },    // TODO: Converting date to something more legible one could use cellrendered and function for parsing
-        { field: "duration", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Activity", field: "activity", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Date", field: "date", sortable: true, filter: true, floatingFilter: true },    // TODO: Converting date to something more legible one could use cellrendered and function for parsing
+        { headerName: "Duration", field: "duration", sortable: true, filter: true, floatingFilter: true },
     ]
 
     // REST API functions
