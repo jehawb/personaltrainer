@@ -52,7 +52,7 @@ export default function Customers() {
         <>
             <h1>&#127939; Customers! &#129336;</h1>
 
-            <div className="ag-theme-material" style={{ height: '700px', width: '100%', padding: '0%', margin: 'auto' }} >
+            <div className="ag-theme-material" style={{ height: '600px', width: '100%', padding: '0%', margin: 'auto' }} >
                 <AgGridReact
                     rowData={customers}
                     columnDefs={columnDefs}

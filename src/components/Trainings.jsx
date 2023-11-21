@@ -42,7 +42,7 @@ export default function Trainings() {
             field: "customer",
             valueGetter: (params) => {
                 return params.data.customer.lastname + ', ' + params.data.customer.firstname;
-            },
+            },  // May break if fetching data takes too long or no names given
             ...columnProperties
         },
     ]
@@ -72,7 +72,7 @@ export default function Trainings() {
         <>
             <h1>&#128170; Train, train, train! &#128642;</h1>
 
-            <div className="ag-theme-material" style={{ height: '700px', width: '100%', padding: '0%', margin: 'auto' }} >
+            <div className="ag-theme-material" style={{ height: '600px', width: '100%', padding: '0%', margin: 'auto' }} >
                 <AgGridReact
                     rowData={trainings}
                     columnDefs={columnDefs}
