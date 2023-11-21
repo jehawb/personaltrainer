@@ -1,6 +1,7 @@
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-material.css';
 import { AgGridReact } from "ag-grid-react";
+import moment from 'moment/moment';
 import { useEffect, useState } from "react";
 
 export default function Trainings() {
@@ -12,14 +13,21 @@ export default function Trainings() {
     // Ag-Grid columns
 
     const columnProperties = {
-        sortable: true, 
-        filter: true, 
+        sortable: true,
+        filter: true,
         floatingFilter: true
     }
 
     const columnDefs = [
         { headerName: "Activity", field: "activity", ...columnProperties },
-        { headerName: "Date", field: "date", ...columnProperties },    // TODO: Converting date to something more legible one could use cellrendered and function for parsing
+        {
+            headerName: "Date",
+            field: "date",
+            valueFormatter: params => {
+                return params.value ? moment(params.value).format('DD / MM / YYYY') : '';
+            },
+            ...columnProperties
+        },
         { headerName: "Duration", field: "duration", ...columnProperties },
     ]
 
