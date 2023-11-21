@@ -24,7 +24,7 @@ export default function Customers() {
         { headerName: "Postcode", field: "postcode", ...columnProperties },
         { headerName: "City", field: "city", ...columnProperties },
         { headerName: "e-mail", field: "email", ...columnProperties },   // I sure hope this application is not for public use
-        { headerName: "Phone number", field: "phone" },
+        { headerName: "Phone number", field: "phone", ...columnProperties },
     ]
 
     // REST API functions

@@ -19,7 +19,11 @@ export default function Trainings() {
     }
 
     const columnDefs = [
-        { headerName: "Activity", field: "activity", ...columnProperties },
+        {
+            headerName: "Activity",
+            field: "activity",
+            ...columnProperties
+        },
         {
             headerName: "Date",
             field: "date",
@@ -28,10 +32,19 @@ export default function Trainings() {
             },
             ...columnProperties
         },
-        { headerName: "Duration", field: "duration", ...columnProperties },
-        { headerName: "Customer", field: "customer", valueGetter: (params) => {
-            return params.data.customer.lastname + ', ' + params.data.customer.firstname;
-          }, ...columnProperties },
+        {
+            headerName: "Duration",
+            field: "duration",
+            ...columnProperties
+        },
+        {
+            headerName: "Customer",
+            field: "customer",
+            valueGetter: (params) => {
+                return params.data.customer.lastname + ', ' + params.data.customer.firstname;
+            },
+            ...columnProperties
+        },
     ]
 
     // REST API functions
