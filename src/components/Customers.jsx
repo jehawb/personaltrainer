@@ -18,8 +18,8 @@ export default function Customers() {
     }
 
     const columnDefs = [
-        { headerName: "First Name", field: "firstname", ...columnProperties },
         { headerName: "Last Name", field: "lastname", ...columnProperties },
+        { headerName: "First Name", field: "firstname", ...columnProperties },
         { headerName: "Address", field: "streetaddress", ...columnProperties },
         { headerName: "Postcode", field: "postcode", ...columnProperties },
         { headerName: "City", field: "city", ...columnProperties },

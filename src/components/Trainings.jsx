@@ -29,11 +29,14 @@ export default function Trainings() {
             ...columnProperties
         },
         { headerName: "Duration", field: "duration", ...columnProperties },
+        { headerName: "Customer", field: "customer", valueGetter: (params) => {
+            return params.data.customer.lastname + ', ' + params.data.customer.firstname;
+          }, ...columnProperties },
     ]
 
     // REST API functions
 
-    const REST_URL = "http://traineeapp.azurewebsites.net/api/trainings";
+    const REST_URL = "https://traineeapp.azurewebsites.net/gettrainings";
 
     useEffect(() => getTrainings(), []);    // Call getTrainings when rendering the component first time
 
@@ -41,8 +44,8 @@ export default function Trainings() {
         fetch(REST_URL)
             .then(response => response.json())
             .then(responseData => {
-                console.log("responseData:" + responseData.content);
-                setTrainings(responseData.content);
+                console.log("responseData:" + responseData);
+                setTrainings(responseData);
             })
             .catch(error => console.error(error));
     }
