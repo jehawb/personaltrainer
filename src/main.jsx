@@ -1,12 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import { createBrowserRouter } from 'react-router-dom'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router';
+import { createBrowserRouter } from 'react-router-dom';
+import App from './App.jsx';
+import Customers from './components/Customers.jsx';
 import Error from './components/Error.jsx';
 import Home from './components/Home.jsx';
 import Trainings from './components/Trainings.jsx';
-import { RouterProvider } from 'react-router';
-import Customers from './components/Customers.jsx';
 // import './index.css'
 
 const router = createBrowserRouter([
