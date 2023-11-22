@@ -34,6 +34,7 @@ export default function Customers() {
     // REST API functions
 
     const REST_URL = "http://traineeapp.azurewebsites.net/api/customers";
+    // Alternative api call https://traineeapp.azurewebsites.net/getcustomers
 
     useEffect(() => getCustomers(), []);    // Call getCustomers when rendering the component first time
 
