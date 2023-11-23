@@ -3,7 +3,8 @@ import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-material.css';
 import { AgGridReact } from "ag-grid-react";
 import { useEffect, useState } from "react";
-import AddCustomer from './Addcustomer';
+import AddCustomer from './AddCustomer';
+import EditCustomer from './EditCustomer';
 
 export default function Customers() {
 
@@ -29,6 +30,10 @@ export default function Customers() {
         { headerName: "City", field: "city", ...columnProperties },
         { headerName: "email", field: "email", ...columnProperties },
         { headerName: "Phone number", field: "phone", ...columnProperties },
+        {
+            cellRenderer: params => <EditCustomer editCustomer={editCustomer} customer={params.data} />,
+            width: 120
+        },
         {
             cellRenderer: params =>
                 <Button size="small" color="error" onClick={() =>
@@ -73,6 +78,11 @@ export default function Customers() {
                 }
             })
             .catch(err => console.error(err));
+    }
+
+    const editCustomer = (params) => {
+        // TODO: editCustomer
+
     }
 
     const deleteCustomer = (params) => {
