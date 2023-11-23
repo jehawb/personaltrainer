@@ -1,4 +1,4 @@
-import { Snackbar } from '@mui/material';
+import { Button, Snackbar } from '@mui/material';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-material.css';
 import { AgGridReact } from "ag-grid-react";
@@ -16,8 +16,8 @@ export default function Customers() {
     // Ag-Grid columns
 
     const columnProperties = {
-        sortable: true, 
-        filter: true, 
+        sortable: true,
+        filter: true,
         floatingFilter: true
     }
 
@@ -27,8 +27,17 @@ export default function Customers() {
         { headerName: "Address", field: "streetaddress", ...columnProperties },
         { headerName: "Postcode", field: "postcode", ...columnProperties },
         { headerName: "City", field: "city", ...columnProperties },
-        { headerName: "email", field: "email", ...columnProperties },   // I sure hope this application is not for public use
+        { headerName: "email", field: "email", ...columnProperties },
         { headerName: "Phone number", field: "phone", ...columnProperties },
+        {
+            cellRenderer: params =>
+                <Button size="small" color="error" onClick={() =>
+                    window.confirm("Are you sure you want to delete a customer from the database?") ? deleteCustomer(params) : null}
+                >
+                    Delete
+                </Button>,
+            width: 100
+        },
     ]
 
     // REST API functions
@@ -36,7 +45,7 @@ export default function Customers() {
     const REST_URL = "http://traineeapp.azurewebsites.net/api/customers";
     // Alternative api call https://traineeapp.azurewebsites.net/getcustomers
 
-    useEffect(() => getCustomers(), []);    // Call getCustomers when rendering the component first time
+    useEffect(() => getCustomers(), []);    // Call getCustomers when rendering the component first time, affects delete and edit call links aswell
 
     const getCustomers = () => {
         fetch(REST_URL)
@@ -49,23 +58,35 @@ export default function Customers() {
     }
 
     const addCustomer = (customer) => {
-        // alert("Adding a new customer to database"); // Triggers when pressing save customer button on add new customer form / dialog, maybe useless
-
         fetch(REST_URL, {
             method: 'POST',
-            headers: {'Content-type': 'application/json'},
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(customer)
         })
-        .then(response => {
-            if(response.ok) {
-                setSnackbarMsg("New customer added");
-                setShowSnackbar(true);
-                getCustomers();
-            } else {
-                alert("Something went wrong when  trying to add a new customer.");
-            }
-        })
-        .catch(err => console.error(err));
+            .then(response => {
+                if (response.ok) {
+                    setSnackbarMsg("New customer added");
+                    setShowSnackbar(true);
+                    getCustomers();
+                } else {
+                    alert("Something went wrong when trying to add a new customer.");
+                }
+            })
+            .catch(err => console.error(err));
+    }
+
+    const deleteCustomer = (params) => {
+        fetch(params.data.links[0].href, { method: "DELETE" })
+            .then(response => {
+                if (response.ok) {
+                    setSnackbarMsg("Customer deleted");
+                    setShowSnackbar(true);
+                    getCustomers();
+                } else {
+                    alert("Something went wrong when trying to delete a customer");
+                }
+            })
+            .catch(error => console.error(error));
     }
 
     // Functions
@@ -89,11 +110,11 @@ export default function Customers() {
             </div>
 
             <Snackbar
-                    open={showSnackbar}
-                    autoHideDuration={3000}
-                    onClose={() => setShowSnackbar(false)}
-                    message={snackbarMsg}
-                />
+                open={showSnackbar}
+                autoHideDuration={3000}
+                onClose={() => setShowSnackbar(false)}
+                message={snackbarMsg}
+            />
         </>
     );
 }
