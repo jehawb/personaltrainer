@@ -36,9 +36,11 @@ export default function Customers() {
         },
         {
             cellRenderer: params =>
-                <Button size="small" color="error" onClick={() =>
-                    window.confirm("Are you sure you want to delete a customer from the database?") ? deleteCustomer(params) : null}
-                >
+                <Button
+                    size="small"
+                    color="error"
+                    onClick={() =>
+                        window.confirm("Are you sure you want to delete a customer from the database?") ? deleteCustomer(params) : null}>
                     Delete
                 </Button>,
             width: 100
@@ -48,9 +50,9 @@ export default function Customers() {
     // REST API functions
 
     const REST_URL = "http://traineeapp.azurewebsites.net/api/customers";
-    // Alternative api call https://traineeapp.azurewebsites.net/getcustomers
+    // Alternative api call https://traineeapp.azurewebsites.net/getcustomers, affects delete and edit call links aswell
 
-    useEffect(() => getCustomers(), []);    // Call getCustomers when rendering the component first time, affects delete and edit call links aswell
+    useEffect(() => getCustomers(), []);    // Call getCustomers when rendering the component first time
 
     const getCustomers = () => {
         fetch(REST_URL)
@@ -83,19 +85,19 @@ export default function Customers() {
     const editCustomer = (customer, link) => {
         fetch(link, {
             method: 'PUT',
-            headers: {'Content-type': 'application/json'},
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(customer)
         })
-        .then( response => {
-            if (response.ok) {
-                setSnackbarMsg("Customer information updated");
-                setShowSnackbar(true);
-                getCustomers();
-            } else {
-                alert("Something went wrong when trying to update a customer.");
-            }
-        })
-        .catch(err => console.error(err));
+            .then(response => {
+                if (response.ok) {
+                    setSnackbarMsg("Customer information updated");
+                    setShowSnackbar(true);
+                    getCustomers();
+                } else {
+                    alert("Something went wrong when trying to update a customer.");
+                }
+            })
+            .catch(err => console.error(err));
 
     }
 
