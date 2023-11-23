@@ -10,12 +10,12 @@ export default function EditCustomer(props) {
     // functions
     const handleClickOpen = () => {
         console.log(props.customer);
-        setCar({ ...customer, firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email, phone: props.customer.phone, streetaddress: props.customer.streetaddress, postcode: props.customer.postcode, city: props.customer.city });
+        setCustomer({ ...customer, firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email, phone: props.customer.phone, streetaddress: props.customer.streetaddress, postcode: props.customer.postcode, city: props.customer.city });
         setShowDialog(true);
     }
 
     const handleInputChanged = (event) => {
-        setCar({ ...customer, [event.target.name]: event.target.value });
+        setCustomer({ ...customer, [event.target.name]: event.target.value });
     }
 
     const handleClose = (event, reason) => {
@@ -26,8 +26,9 @@ export default function EditCustomer(props) {
         }
     }
 
-    const updateCustomer = () => {
-        props.updateCustomer(customer, props.data.customer.links[0].href); // Link may not be the right one
+    const editCustomer = () => {
+        console.log(props.customer.links[0].href);
+        props.editCustomer(customer, props.customer.links[0].href); // Link may not be the right one
         setShowDialog(false);
         setCustomer({ firstname: '', lastname: '', email: '', phone: '', streetaddress: '', postcode: '', city: '' });
     }
@@ -91,7 +92,7 @@ export default function EditCustomer(props) {
 
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={updateCustomer}>Save</Button>
+                    <Button onClick={editCustomer}>Save</Button>
                 </DialogActions>
 
             </Dialog>

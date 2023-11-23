@@ -80,8 +80,22 @@ export default function Customers() {
             .catch(err => console.error(err));
     }
 
-    const editCustomer = (params) => {
-        // TODO: editCustomer
+    const editCustomer = (customer, link) => {
+        fetch(link, {
+            method: 'PUT',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(customer)
+        })
+        .then( response => {
+            if (response.ok) {
+                setSnackbarMsg("Customer information updated");
+                setShowSnackbar(true);
+                getCustomers();
+            } else {
+                alert("Something went wrong when trying to update a customer.");
+            }
+        })
+        .catch(err => console.error(err));
 
     }
 
