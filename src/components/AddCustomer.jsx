@@ -17,8 +17,6 @@ export default function AddCustomer(props) {
     const handleClose = (event, reason) => {
         if (reason != 'backdropClick') {
             setShowDialog(false);
-        } else {
-            setShowDialog(false);
         }
     }
 
