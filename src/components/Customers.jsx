@@ -19,16 +19,17 @@ export default function Customers() {
     const columnProperties = {
         sortable: true,
         filter: true,
-        floatingFilter: true
+        // floatingFilter: true,    // Adds another filtering way but not removing the first one
+        width: 150,
     }
 
     const columnDefs = [
         { headerName: "Last Name", field: "lastname", ...columnProperties },
         { headerName: "First Name", field: "firstname", ...columnProperties },
-        { headerName: "Address", field: "streetaddress", ...columnProperties },
+        { headerName: "Address", field: "streetaddress", ...columnProperties, width: 220 },
         { headerName: "Postcode", field: "postcode", ...columnProperties },
-        { headerName: "City", field: "city", ...columnProperties },
-        { headerName: "email", field: "email", ...columnProperties },
+        { headerName: "City", field: "city", ...columnProperties, width: 200 },
+        { headerName: "email", field: "email", ...columnProperties, width: 220 },
         { headerName: "Phone number", field: "phone", ...columnProperties },
         {
             cellRenderer: params => <EditCustomer editCustomer={editCustomer} customer={params.data} />,

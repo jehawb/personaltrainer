@@ -26,7 +26,7 @@ export default function Reset() {
 
     return (
         <>
-            <Button onClick={reset}>Reset Database</Button>
+            <Button variant="contained" size="large" onClick={reset}>Reset Database</Button>
         </>
     );
 
