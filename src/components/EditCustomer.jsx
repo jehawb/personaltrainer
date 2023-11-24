@@ -3,11 +3,13 @@ import { useState } from "react";
 
 export default function EditCustomer(props) {
 
-    // states
+    // States
+
     const [customer, setCustomer] = useState({ firstname: '', lastname: '', email: '', phone: '', streetaddress: '', postcode: '', city: '' });
     const [showDialog, setShowDialog] = useState(false);
 
-    // functions
+    // Functions
+
     const handleClickOpen = () => {
         console.log(props.customer);
         setCustomer({ ...customer, firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email, phone: props.customer.phone, streetaddress: props.customer.streetaddress, postcode: props.customer.postcode, city: props.customer.city });
@@ -33,7 +35,8 @@ export default function EditCustomer(props) {
         setCustomer({ firstname: '', lastname: '', email: '', phone: '', streetaddress: '', postcode: '', city: '' });
     }
 
-    // return
+    // Rendering
+    
     return (
         <>
             <Button onClick={handleClickOpen}>Edit</Button>

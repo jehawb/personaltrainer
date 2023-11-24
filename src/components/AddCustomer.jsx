@@ -28,7 +28,7 @@ export default function AddCustomer(props) {
         setCustomer({ firstname: '', lastname: '', email: '', phone: '', streetaddress: '', postcode: '', city: '' }); // Clear add customer form after adding 
     }
 
-    // Return
+    // Rendering
 
     return (
         <>
