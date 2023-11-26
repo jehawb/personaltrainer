@@ -2,8 +2,9 @@ import { Button, Snackbar } from '@mui/material';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-material.css';
 import { AgGridReact } from "ag-grid-react";
-import moment from 'moment/moment';
+import dayjs from 'dayjs';
 import { useEffect, useState } from "react";
+import AddTraining from './AddTraining';
 
 export default function Trainings() {
 
@@ -32,7 +33,7 @@ export default function Trainings() {
             headerName: "Date",
             field: "date",
             valueFormatter: params => {
-                return params.value ? moment(params.value).format('DD / MM / YYYY') : '';
+                return params.value ? dayjs(params.value).format('DD / MM / YYYY') : '';
             },
             ...columnProperties
         },
@@ -45,8 +46,12 @@ export default function Trainings() {
             headerName: "Customer",
             field: "customer",
             valueGetter: (params) => {
-                return params.data.customer.lastname + ', ' + params.data.customer.firstname;
-            },  // May break if fetching data takes too long or no names given
+                if (params.data.customer == null) {
+                    return "";
+                } else {
+                    return params.data.customer.lastname + ', ' + params.data.customer.firstname;
+                }
+            },
             ...columnProperties
         },
         {
@@ -78,6 +83,31 @@ export default function Trainings() {
             .catch(error => console.error(error));
     }
 
+    const addTraining = (training) => {
+        console.log(training);
+        fetch("https://traineeapp.azurewebsites.net/api/trainings", {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(training)
+        })
+            .then(response => {
+                if (response.ok) {
+                    setSnackbarMsg("New training added");
+                    setShowSnackbar(true);
+                    getTrainings();
+                } else {
+                    alert("Something went wrong when trying to add a new training.");
+                }
+            })
+            .catch(err => console.error(err));
+    }
+
+    const editTraining = (training, link) => {
+        // TODO
+        console.log(training);
+        console.log(link);
+    }
+
     const deleteTraining = (params) => {
         console.log("https://traineeapp.azurewebsites.net/api/trainings/" + params.data.id);
         fetch("https://traineeapp.azurewebsites.net/api/trainings/" + params.data.id, { method: "DELETE" })
@@ -101,6 +131,8 @@ export default function Trainings() {
     return (
         <>
             <h1>&#128170; Train, train, train! &#128642;</h1>
+
+            <AddTraining addTraining={addTraining} />
 
             <div className="ag-theme-material" style={{ height: '600px', width: '100%', padding: '0%', margin: 'auto' }} >
                 <AgGridReact
