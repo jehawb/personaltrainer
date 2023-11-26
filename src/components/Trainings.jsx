@@ -5,6 +5,7 @@ import { AgGridReact } from "ag-grid-react";
 import dayjs from 'dayjs';
 import { useEffect, useState } from "react";
 import AddTraining from './AddTraining';
+import EditTraining from './EditTraining';
 
 export default function Trainings() {
 
@@ -54,6 +55,10 @@ export default function Trainings() {
             },
             ...columnProperties
         },
+        // {
+        //     cellRenderer: params => <EditTraining editTraining={editTraining} training={params.data} />,
+        //     width: 100
+        // },   // NOT IMPLEMENTED
         {
             cellRenderer: params =>
                 <Button
@@ -102,11 +107,11 @@ export default function Trainings() {
             .catch(err => console.error(err));
     }
 
-    const editTraining = (training, link) => {
-        // TODO
-        console.log(training);
-        console.log(link);
-    }
+    // const editTraining = (training, link) => {
+    //     // NOT IMPLEMENTED
+    //     console.log(training);
+    //     console.log(link);
+    // }
 
     const deleteTraining = (params) => {
         console.log("https://traineeapp.azurewebsites.net/api/trainings/" + params.data.id);
