@@ -41,7 +41,8 @@ export default function Trainings() {
         {
             headerName: "Duration",
             field: "duration",
-            ...columnProperties
+            ...columnProperties,
+            width: 120
         },
         {
             headerName: "Customer",
@@ -53,7 +54,8 @@ export default function Trainings() {
                     return params.data.customer.lastname + ', ' + params.data.customer.firstname;
                 }
             },
-            ...columnProperties
+            ...columnProperties, 
+            width: 200
         },
         // {
         //     cellRenderer: params => <EditTraining editTraining={editTraining} training={params.data} />,

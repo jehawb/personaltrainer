@@ -14,6 +14,7 @@ npm installs:
 - npm install ag-grid-community ag-grid-react
 - npm install @mui/x-date-pickers
 - npm install dayjs
+- npm install react-csv --save
 <!-- - npm install gh-pages --save-dev -->
 
 Aleksi Hyppönen 2023

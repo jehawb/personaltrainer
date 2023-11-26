@@ -5,6 +5,7 @@ import { AgGridReact } from "ag-grid-react";
 import { useEffect, useState } from "react";
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
+import CSVExport from './CSVExport';
 
 export default function Customers() {
 
@@ -126,6 +127,8 @@ export default function Customers() {
             <h1>&#127939; Customers! &#129336;</h1>
 
             <AddCustomer addCustomer={addCustomer} />
+
+            <CSVExport customers={customers} />
 
             <div className="ag-theme-material" style={{ height: '600px', width: '100%', padding: '0%', margin: 'auto' }} >
                 <AgGridReact

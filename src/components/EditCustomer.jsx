@@ -27,7 +27,7 @@ export default function EditCustomer(props) {
     }
 
     const editCustomer = () => {
-        console.log(props.customer.links[0].href);
+        // console.log(props.customer.links[0].href);
         props.editCustomer(customer, props.customer.links[0].href); // Link may not be the right one
         setShowDialog(false);
         setCustomer({ firstname: '', lastname: '', email: '', phone: '', streetaddress: '', postcode: '', city: '' });
