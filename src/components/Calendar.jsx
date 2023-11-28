@@ -1,12 +1,14 @@
 import { Calendar, dayjsLocalizer } from 'react-big-calendar'
+import 'react-big-calendar/lib/css/react-big-calendar.css'
 import dayjs from 'dayjs'
 
 // https://www.npmjs.com/package/react-big-calendar
 
-const localizer = dayjsLocalizer(dayjs)
 
 export default function Calendar(props) {
-
+    
+    const localizer = dayjsLocalizer(dayjs);
+    
     // States
 
 
