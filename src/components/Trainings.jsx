@@ -5,7 +5,7 @@ import { AgGridReact } from "ag-grid-react";
 import dayjs from 'dayjs';
 import { useEffect, useState } from "react";
 import AddTraining from './AddTraining';
-import EditTraining from './EditTraining';
+// import EditTraining from './EditTraining';   // Not impelemented
 
 export default function Trainings() {
 

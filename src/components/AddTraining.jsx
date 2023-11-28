@@ -77,6 +77,7 @@ export default function AddTraining(props) {
                                 label="Date"
                                 name="date"
                                 format="DD / MM / YYYY"     // Format shown to user
+                                // TODO: add time to training aswell
                                 value={training.date}
                                 onChange={newdate => setTraining({ ...training, date: newdate.format("YYYY-MM-DD") })}  // Format to be saved into database
                             />

@@ -12,6 +12,7 @@ export default function App() {
                     <Link to={"/"}><Button>Home</Button></Link>
                     <Link to={"/trainings"}><Button>Trainings</Button></Link>
                     <Link to={"/customers"}><Button>Customers</Button></Link>
+                    <Link to={"/calendar"}><Button>Calendar</Button></Link>
                 </nav>
                 <Outlet />
             </div>
