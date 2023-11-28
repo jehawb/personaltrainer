@@ -124,7 +124,7 @@ export default function Customers() {
 
     return (
         <>
-            <h1>&#127939; Customers! &#129336;</h1>
+            <h1>&#127939; Customers &#129336;</h1>
 
             <AddCustomer addCustomer={addCustomer} />
 

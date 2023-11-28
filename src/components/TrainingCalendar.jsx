@@ -52,6 +52,8 @@ export default function TrainingCalendar() {
 
     return (
         <>
+            <h1> &#128197; Training Calendar</h1>
+
             <Calendar
                 localizer={localizer}
                 events={events}

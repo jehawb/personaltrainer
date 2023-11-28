@@ -137,7 +137,7 @@ export default function Trainings() {
 
     return (
         <>
-            <h1>&#128170; Train, train, train! &#128642;</h1>
+            <h1>&#128170; Trainings &#128642;</h1>
 
             <AddTraining addTraining={addTraining} />
 
