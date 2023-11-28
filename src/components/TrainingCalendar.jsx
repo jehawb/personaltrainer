@@ -57,6 +57,7 @@ export default function TrainingCalendar() {
                 events={events}
                 startAccessor="start"
                 endAccessor="end"
+                defaultView="agenda"
                 style={{ height: 800 }}
             />
         </>
