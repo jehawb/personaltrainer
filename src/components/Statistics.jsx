@@ -32,6 +32,7 @@ export default function Statistics() {
 
     // Go though trainings and check if activity has already been added to trainingsData creating a new object in trainingsData or adding the activitys duration to the pool
     trainings.forEach(training => {
+        // Checks trainingsData "groups" if one already has a "group" with the name of the activity and returns it's index
         const i = trainingsData.findIndex(group => group.name === training.activity);
 
         if (i !== -1) {
