@@ -48,7 +48,7 @@ export default function TrainingCalendar() {
     // Rendering
 
     const localizer = dayjsLocalizer(dayjs);
-    const events = dataForCalendar(trainings);
+    const events = dataForCalendar(trainings);      // TODO: Check if this should be a state
 
     return (
         <>
