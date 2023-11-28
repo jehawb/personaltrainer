@@ -3,8 +3,8 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 import dayjs from 'dayjs'
 import { useEffect, useState } from "react";
 
+// Documentation for react big calendar
 // https://www.npmjs.com/package/react-big-calendar
-
 
 export default function TrainingCalendar() {
 

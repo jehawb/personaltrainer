@@ -2,6 +2,9 @@ import React from "react";
 import { BarChart, Bar, XAxis } from "recharts";
 import { useEffect, useState } from "react";
 
+// Documentation for recharts
+// https://recharts.org/en-US
+
 export default function Statistics() {
 
     // States
@@ -44,9 +47,11 @@ export default function Statistics() {
 
     return (
         <>
-            <BarChart width={500} height={700} data={trainingsData}>
-                <XAxis dataKey="name" />
-                <Bar dataKey="duration" fill="MidnightBlue" label={{ position: 'center' }} />
+            <h1>Grouped activity minutes &#128202;</h1>
+
+            <BarChart width={800} height={600} data={trainingsData}>
+                <XAxis dataKey="name" fill="black" />
+                <Bar dataKey="duration" fill="CornflowerBlue" label={{ fill: 'white', fontSize: 20, position: 'center' }} />
             </BarChart>
         </>
     );
