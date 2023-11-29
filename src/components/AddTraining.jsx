@@ -2,7 +2,8 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack, TextF
 import { useEffect, useState } from "react";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DateTimePicker } from "@mui/x-date-pickers";
+import dayjs from "dayjs";
 
 export default function AddTraining(props) {
 
@@ -42,6 +43,7 @@ export default function AddTraining(props) {
     }
 
     const handleSave = () => {
+        console.log(training);
         props.addTraining(training);
         setShowDialog(false);
         setTraining({ activity: '', date: '', duration: '', customer: '' });  // Clear training state after adding new one
@@ -73,13 +75,14 @@ export default function AddTraining(props) {
                             onChange={handleInputChanged} />
 
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DatePicker
+                            <DateTimePicker
                                 label="Date"
                                 name="date"
-                                format="DD / MM / YYYY"     // Format shown to user
+                                format="DD/MM/ YYYY HH.mm"     // Format shown to user, HH forces 24h format
                                 // TODO: add time to training aswell
                                 value={training.date}
-                                onChange={newdate => setTraining({ ...training, date: newdate.format("YYYY-MM-DD") })}  // Format to be saved into database
+                                ampm={false}    // 24h format
+                                onChange={newdate => setTraining({ ...training, date: dayjs(newdate).toISOString() })}  // Format to be saved into database
                             />
                         </LocalizationProvider>
 

@@ -34,9 +34,10 @@ export default function Trainings() {
             headerName: "Date",
             field: "date",
             valueFormatter: params => {
-                return params.value ? dayjs(params.value).format('DD / MM / YYYY') : '';
+                return params.value ? dayjs(params.value).format('DD/MM/YYYY HH.mm') : '';
             },
-            ...columnProperties
+            ...columnProperties,
+            width: 200
         },
         {
             headerName: "Duration",

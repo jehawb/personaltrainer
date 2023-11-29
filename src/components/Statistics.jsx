@@ -50,9 +50,9 @@ export default function Statistics() {
         <>
             <h1>Grouped activity minutes &#128202;</h1>
 
-            <BarChart width={800} height={600} data={trainingsData}>
-                <XAxis dataKey="name" fill="black" />
-                <Bar dataKey="duration" fill="CornflowerBlue" label={{ fill: 'white', fontSize: 20, position: 'center' }} />
+            <BarChart width={1000} height={600} data={trainingsData}>
+                <XAxis dataKey="name" fill="black" angle={45} height={100} dy={50} />
+                <Bar dataKey="duration" fill="CornflowerBlue" label={{ fill: 'black', fontSize: 20, position: 'top' }} />
             </BarChart>
         </>
     );
