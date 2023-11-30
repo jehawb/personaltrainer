@@ -48,7 +48,7 @@ export default function Statistics() {
 
     return (
         <>
-            <h1>Grouped activity minutes &#128202;</h1>
+            <h1>Total grouped activity minutes &#128202;</h1>
 
             <BarChart width={1000} height={600} data={trainingsData}>
                 <XAxis dataKey="name" fill="black" angle={45} height={100} dy={50} />
