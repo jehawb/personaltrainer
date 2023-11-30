@@ -11,7 +11,6 @@ export default function EditCustomer(props) {
     // Functions
 
     const handleClickOpen = () => {
-        // console.log(props.customer);
         setCustomer({ ...customer, firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email, phone: props.customer.phone, streetaddress: props.customer.streetaddress, postcode: props.customer.postcode, city: props.customer.city });
         setShowDialog(true);
     }
@@ -27,8 +26,7 @@ export default function EditCustomer(props) {
     }
 
     const editCustomer = () => {
-        // console.log(props.customer.links[0].href);
-        props.editCustomer(customer, props.customer.links[0].href); // Link may not be the right one
+        props.editCustomer(customer, props.customer.links[0].href);
         setShowDialog(false);
         setCustomer({ firstname: '', lastname: '', email: '', phone: '', streetaddress: '', postcode: '', city: '' });
     }

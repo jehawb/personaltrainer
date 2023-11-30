@@ -20,7 +20,7 @@ export default function Trainings() {
     const columnProperties = {
         sortable: true,
         filter: true,
-        // floatingFilter: true,
+        // floatingFilter: true,    // I don't like this one and the filtering is available if user clicks the column label
         width: 150,
     }
 
@@ -92,7 +92,6 @@ export default function Trainings() {
     }
 
     const addTraining = (training) => {
-        console.log(training);
         fetch("https://traineeapp.azurewebsites.net/api/trainings", {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
@@ -117,7 +116,6 @@ export default function Trainings() {
     // }
 
     const deleteTraining = (params) => {
-        console.log("https://traineeapp.azurewebsites.net/api/trainings/" + params.data.id);
         fetch("https://traineeapp.azurewebsites.net/api/trainings/" + params.data.id, { method: "DELETE" })
             .then(response => {
                 if (response.ok) {

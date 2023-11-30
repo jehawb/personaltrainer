@@ -60,7 +60,6 @@ export default function Customers() {
         fetch(REST_URL)
             .then(response => response.json())
             .then(responseData => {
-                // console.log("responseData:" + responseData.content);
                 setCustomers(responseData.content);
             })
             .catch(error => console.error(error));

@@ -29,8 +29,6 @@ export default function CSVExport() {
 
     // Functions
 
-    console.log(customers);
-
     const headers = [
         // { label: "Id", key: "id" },  // Omitting headers filters out the attributes from the data
         { label: "First Name", key: "firstname" },

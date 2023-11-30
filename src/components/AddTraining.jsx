@@ -24,7 +24,6 @@ export default function AddTraining(props) {
         fetch(REST_URL)
             .then(response => response.json())
             .then(responseData => {
-                // console.log(responseData.content);
                 setCustomers(responseData.content);
             })
             .catch(error => console.error(error));
@@ -43,7 +42,6 @@ export default function AddTraining(props) {
     }
 
     const handleSave = () => {
-        console.log(training);
         props.addTraining(training);
         setShowDialog(false);
         setTraining({ activity: '', date: '', duration: '', customer: '' });  // Clear training state after adding new one
