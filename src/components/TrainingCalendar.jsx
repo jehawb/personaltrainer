@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 // Documentation for react big calendar
 // https://www.npmjs.com/package/react-big-calendar
 
+// TODO: Figure out the localization for this, at the moment it's in 'murican localization with sunday as the first day of the week and 12 hour format
+
 export default function TrainingCalendar() {
 
     // States
