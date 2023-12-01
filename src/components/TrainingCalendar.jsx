@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 // https://www.npmjs.com/package/react-big-calendar
 
 // TODO: Figure out the localization for this, at the moment it's in 'murican localization with sunday as the first day of the week and 12 hour format
+// TODO: Show the customer in the calendar events aswell
 
 export default function TrainingCalendar() {
 
