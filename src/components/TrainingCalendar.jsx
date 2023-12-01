@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 // https://www.npmjs.com/package/react-big-calendar
 
 // TODO: Figure out the localization for this, at the moment it's in 'murican localization with sunday as the first day of the week and 12 hour format
-// TODO: Show the customer in the calendar events aswell
 
 export default function TrainingCalendar() {
 
@@ -41,7 +40,7 @@ export default function TrainingCalendar() {
             // This second return returns every converted row of data from mapping
             return {
                 id: training.id,
-                title: training.activity,
+                title: training.activity + "/" + training.customer.firstname + " " + training.customer.lastname,
                 start: startDate.toDate(),
                 end: endDate.toDate()
             }
