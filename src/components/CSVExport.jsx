@@ -44,7 +44,11 @@ export default function CSVExport() {
 
     return (
         <>
-            <CSVLink data={customers} headers={headers}>
+            <CSVLink 
+                data={customers} 
+                headers={headers}
+                separator={";"}
+                filename="customers.csv">
                 <Button>Export to CSV</Button>
             </CSVLink>
         </>
