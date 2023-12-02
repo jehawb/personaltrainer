@@ -96,7 +96,7 @@ export default function AddTraining(props) {
                                 labelId="customer"
                                 label='Customer'
                                 value={selectedCustomer}
-                                name='customer'
+                                // name='customer'      // causes out of index errors, maybe?
                                 onChange={handleCustomerChanged}>
                                 {customers.map((customer) => (
                                     <MenuItem
