@@ -17,9 +17,9 @@ npm installs:
 - npm install react-csv --save
 - npm install --save react-big-calendar
 - npm install recharts
-<!-- - npm install gh-pages --save-dev -->
+- npm install gh-pages --save-dev
 
 Aleksi Hyppönen 2023
 
 TODO:
-- Add time aswell to trainings date
+- Consolidate API fetches
