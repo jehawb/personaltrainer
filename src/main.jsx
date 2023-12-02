@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router';
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import App from './App.jsx';
 import Customers from './components/Customers.jsx';
 import Error from './components/Error.jsx';
@@ -11,9 +12,9 @@ import TrainingCalendar from './components/TrainingCalendar.jsx';
 import Statistics from './components/Statistics.jsx';
 // import './index.css'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
-        path: "/",
+        path: "/*",
         element: <App />,
         errorElement: <Error />,
         children: [
