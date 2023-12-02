@@ -13,7 +13,7 @@ import TrainingCalendar from './components/TrainingCalendar.jsx';
 import Statistics from './components/Statistics.jsx';
 // import './index.css'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: "/",
         element: <App />,
