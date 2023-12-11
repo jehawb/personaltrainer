@@ -22,4 +22,5 @@ npm installs:
 Aleksi Hyppönen 2023
 
 TODO:
+- switch all http to https for github pages
 - Consolidate API fetches
